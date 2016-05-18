@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="user">
+	<resultMap id="BaseResultMap" type="cn.com.project.system.model.User">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+		<result column="SEX" property="sex" jdbcType="VARCHAR" />
+		<result column="NATIONALITY" property="nationality" jdbcType="VARCHAR" />
+		<result column="BIRTH_DATE" property="birthDate" jdbcType="DATE" />
+		<result column="ENGLISH_NAME" property="englishName" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="PHONE_NUMBER" property="phoneNumber" jdbcType="VARCHAR" />
+		<result column="PHONE_NUMBER_OTHER" property="phoneNumberOther" jdbcType="VARCHAR" />
+		<result column="QQ_NUMBER" property="qqNumber" jdbcType="VARCHAR" />
+		<result column="CREATE_DATE" property="createDate" jdbcType="DATE" />
+		<result column="FINALLY_DATE" property="finallyDate" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="id != null">
+				and ID = #{id}
+			</if>
+			<if test="loginName != null">
+				and LOGIN_NAME = #{loginName}
+			</if>
+			<if test="password != null">
+				and PASSWORD = #{password}
+			</if>
+			<if test="userName != null">
+				and USER_NAME = #{userName}
+			</if>
+			<if test="userCode != null">
+				and USER_CODE = #{userCode}
+			</if>
+			<if test="sex != null">
+				and SEX = #{sex}
+			</if>
+			<if test="nationality != null">
+				and NATIONALITY = #{nationality}
+			</if>
+			<if test="birthDate != null">
+				and BIRTH_DATE = #{birthDate}
+			</if>
+			<if test="englishName != null">
+				and ENGLISH_NAME = #{englishName}
+			</if>
+			<if test="email != null">
+				and EMAIL = #{email}
+			</if>
+			<if test="phoneNumber != null">
+				and PHONE_NUMBER = #{phoneNumber}
+			</if>
+			<if test="phoneNumberOther != null">
+				and PHONE_NUMBER_OTHER = #{phoneNumberOther}
+			</if>
+			<if test="qqNumber != null">
+				and QQ_NUMBER = #{qqNumber}
+			</if>
+			<if test="createDate != null">
+				and CREATE_DATE = #{createDate}
+			</if>
+			<if test="finallyDate != null">
+				and FINALLY_DATE = #{finallyDate}
+			</if>
+		</trim>
+	</sql>
+	<sql id="Base_Column_List">
+		ID,LOGIN_NAME,PASSWORD,USER_NAME,USER_CODE,NATIONALITY,SEX,BIRTH_DATE,ENGLISH_NAME,EMAIL,PHONE_NUMBER,PHONE_NUMBER_OTHER,QQ_NUMBER,CREATE_DATE,FINALLY_DATE
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.com.project.system.model.User">
+		select
+		<include refid="Base_Column_List" />
+		from users
+	</select>
+	<insert id="insert" parameterType="cn.com.project.system.model.User">
+		insert into users
+		(LOGIN_NAME,PASSWORD,USER_NAME,USER_CODE,NATIONALITY,SEX,BIRTH_DATE,ENGLISH_NAME,EMAIL,PHONE_NUMBER,PHONE_NUMBER_OTHER,QQ_NUMBER,CREATE_DATE,FINALLY_DATE) 
+		values
+		(#{loginName},#{password},#{userName},#{userCode},#{nationality},#{sex},#{birthDate},#{englishName},#{email},#{phoneNumber},#{phoneNumberOther},#{qqNumber},#{createDate},#{finallyDate})
+	</insert>
+	<delete id="delete">
+		delete from users where id in 
+		<foreach collection="array" index="index" item="ids" open="(" separator="," close=")">
+			#{ids}       
+		</foreach>  
+	</delete>
+</mapper>
