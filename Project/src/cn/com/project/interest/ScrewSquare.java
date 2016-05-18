@@ -22,7 +22,7 @@ public class ScrewSquare {
 
 	/**
 	 * 
-	 * @description ÂİĞı¾ØÕó
+	 * @description ÂİĞı¾ØÕóµÄ´úÂë
 	 * 
 	 * @author HeDw
 	 * 
