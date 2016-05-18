@@ -24,7 +24,7 @@ public class ScrewSquare {
 	 * 
 	 * @description ÂİĞı¾ØÕóµÄ´úÂë
 	 * 
-	 * @author HeDw
+	 * @author ºØµèÎ°
 	 * 
 	 */
 	public void screwMatrix() {
