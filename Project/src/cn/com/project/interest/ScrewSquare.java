@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 
  * @Package cn.com.project.interest
  * 
- * @Description: TODO(用一句话描述该文件做什么)
+ * @Description: 螺旋方阵的代码示例
  * 
  * @author HeDw
  * 
